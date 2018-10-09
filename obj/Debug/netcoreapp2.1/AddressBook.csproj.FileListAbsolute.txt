@@ -1,0 +1,11 @@
+C:\Users\Student\workspace\csharp\AddressBook\bin\Debug\netcoreapp2.1\AddressBook.deps.json
+C:\Users\Student\workspace\csharp\AddressBook\bin\Debug\netcoreapp2.1\AddressBook.runtimeconfig.json
+C:\Users\Student\workspace\csharp\AddressBook\bin\Debug\netcoreapp2.1\AddressBook.runtimeconfig.dev.json
+C:\Users\Student\workspace\csharp\AddressBook\bin\Debug\netcoreapp2.1\AddressBook.dll
+C:\Users\Student\workspace\csharp\AddressBook\bin\Debug\netcoreapp2.1\AddressBook.pdb
+C:\Users\Student\workspace\csharp\AddressBook\obj\Debug\netcoreapp2.1\AddressBook.csprojAssemblyReference.cache
+C:\Users\Student\workspace\csharp\AddressBook\obj\Debug\netcoreapp2.1\AddressBook.csproj.CoreCompileInputs.cache
+C:\Users\Student\workspace\csharp\AddressBook\obj\Debug\netcoreapp2.1\AddressBook.AssemblyInfoInputs.cache
+C:\Users\Student\workspace\csharp\AddressBook\obj\Debug\netcoreapp2.1\AddressBook.AssemblyInfo.cs
+C:\Users\Student\workspace\csharp\AddressBook\obj\Debug\netcoreapp2.1\AddressBook.dll
+C:\Users\Student\workspace\csharp\AddressBook\obj\Debug\netcoreapp2.1\AddressBook.pdb
