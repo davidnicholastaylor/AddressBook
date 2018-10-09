@@ -3,11 +3,13 @@ using System.Collections.Generic;
 
 namespace AddressBook
 {
-    class Contact {
+    class Contact
+    {
         public string FirstName;
         public string LastName;
 
-        public string FullName { 
+        public string FullName
+        {
             get
             {
                 return $"{FirstName} {LastName}";
@@ -17,20 +19,25 @@ namespace AddressBook
         public string Address;
     }
 
-    class AddressBook {
+    class AddressBook
+    {
+        Dictionary<string, Contact> addressBook = new Dictionary<string, Contact>();
 
-        List<string> Contacts = new List<string>();
-        Dictionary<string, string> addressBook = new Dictionary<string, string>();
+        public void AddContact(Contact contact)
+        {
+            addressBook.Add(contact.Email, contact);
+        }
 
-        public void AddContact(Contact contact) {
-            addressBook.Add(contact[]);
+        public Contact GetByEmail(string email)
+        {
+            return addressBook[email];
         }
     }
     class Program
     {
         /*
             1. Add the required classes to make the following code compile.
-            HINT: Use a Dictionary in the AddressBook class to store Contacts
+            HINT: Use a Dictionary in the AddressBook class to store Contacts. They keys should be the contact email.
 
             2. Run the program and observe the exception.
 
@@ -70,9 +77,15 @@ namespace AddressBook
             addressBook.AddContact(sue);
             addressBook.AddContact(juan);
 
-            // Try to addd a contact a second time
-            addressBook.AddContact(sue);
-
+            // Try to add a contact a second time
+            try
+            {
+                addressBook.AddContact(sue);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"{sue.FullName} already exists in contacts.");
+            }
 
             // Create a list of emails that match our Contacts
             List<string> emails = new List<string>() {
@@ -84,15 +97,22 @@ namespace AddressBook
             // Insert an email that does NOT match a Contact
             emails.Insert(1, "not.in.addressbook@email.com");
 
-
             //  Search the AddressBook by email and print the information about each Contact
             foreach (string email in emails)
             {
-                Contact contact = addressBook.GetByEmail(email);
-                Console.WriteLine("----------------------------");
-                Console.WriteLine($"Name: {contact.FullName}");
-                Console.WriteLine($"Email: {contact.Email}");
-                Console.WriteLine($"Address: {contact.Address}");
+                try
+                {
+                    Contact contact = addressBook.GetByEmail(email);
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine($"Name: {contact.FullName}");
+                    Console.WriteLine($"Email: {contact.Email}");
+                    Console.WriteLine($"Address: {contact.Address}");
+                }
+                catch (KeyNotFoundException)
+                {
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine($"Employee with email {email} does not exist.");
+                }
             }
         }
     }
