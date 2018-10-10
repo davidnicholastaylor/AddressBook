@@ -5,9 +5,13 @@ namespace AddressBook
 {
     class Contact
     {
+        // Create properties of class
         public string FirstName;
         public string LastName;
+        public string Email;
+        public string Address;
 
+        // Combine first name and last name properties
         public string FullName
         {
             get
@@ -15,19 +19,20 @@ namespace AddressBook
                 return $"{FirstName} {LastName}";
             }
         }
-        public string Email;
-        public string Address;
     }
 
     class AddressBook
     {
+        // Create dictionary of string keys and Contact values
         Dictionary<string, Contact> addressBook = new Dictionary<string, Contact>();
 
+        // Use contact class to add key value pairs of contact emails and contacts into the addressBook dictionary
         public void AddContact(Contact contact)
         {
             addressBook.Add(contact.Email, contact);
         }
 
+        // Return email from addressBook
         public Contact GetByEmail(string email)
         {
             return addressBook[email];
@@ -78,11 +83,12 @@ namespace AddressBook
             addressBook.AddContact(juan);
 
             // Try to add a contact a second time
+            // Catch the contact if there is already a contact with that value and print custom error message
             try
             {
                 addressBook.AddContact(sue);
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 Console.WriteLine($"{sue.FullName} already exists in contacts.");
             }
@@ -100,6 +106,8 @@ namespace AddressBook
             //  Search the AddressBook by email and print the information about each Contact
             foreach (string email in emails)
             {
+                // Try to print contact list by using GetByEmail method
+                // Catch email that does not match contact and print custom error message
                 try
                 {
                     Contact contact = addressBook.GetByEmail(email);
