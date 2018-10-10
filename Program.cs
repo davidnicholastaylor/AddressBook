@@ -27,9 +27,18 @@ namespace AddressBook
         Dictionary<string, Contact> addressBook = new Dictionary<string, Contact>();
 
         // Use contact class to add key value pairs of contact emails and contacts into the addressBook dictionary
+        // Try to add a contact a second time
+        // Catch the contact if there is already a contact with that value and print custom error message
         public void AddContact(Contact contact)
         {
+            try 
+            {
             addressBook.Add(contact.Email, contact);
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine($"{contact.FullName} already exists in contacts.");
+            }
         }
 
         // Return email from addressBook
@@ -82,16 +91,9 @@ namespace AddressBook
             addressBook.AddContact(sue);
             addressBook.AddContact(juan);
 
-            // Try to add a contact a second time
-            // Catch the contact if there is already a contact with that value and print custom error message
-            try
-            {
-                addressBook.AddContact(sue);
-            }
-            catch (ArgumentException)
-            {
-                Console.WriteLine($"{sue.FullName} already exists in contacts.");
-            }
+            // Try adding a contact a second time
+            addressBook.AddContact(sue);
+            
 
             // Create a list of emails that match our Contacts
             List<string> emails = new List<string>() {
